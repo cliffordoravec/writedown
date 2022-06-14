@@ -1,0 +1,11 @@
+Writedown supports several forms of comments.
+
+@comment This is a single-line comment.  Anything we write on this line not appear in output.
+
+@# This also is a single-line comment using a shorthand syntax.
+
+@*
+This is a multi-line comment block.
+
+Anything we write within this block will not appear in output.
+*@

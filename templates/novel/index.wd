@@ -1,0 +1,6 @@
+@title Your Novel
+@author Your Name
+@tableofcontents
+@include characters.wd
+@include places.wd
+@include part1/index.wd

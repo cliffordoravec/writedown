@@ -1,0 +1,49 @@
+Whitespace and newlines matter in Writedown, as we've seen a little bit already in the instructions tutorial.
+
+But it goes further than that.
+
+The way to think of it is that Writedown "respects" whitespace and newlines when it comes to output.  If you include a space or a newline in your manuscript, Writedown will preserve that space and newline in your output.
+
+For example, if you include a blank line between Writedown instructions, such as in the following:
+
+@title My Document
+
+@author Me
+
+Your output will reflect that blank line:
+
+> My Document
+>
+> by Me
+
+That's the first thing you should know.
+
+The second thing you should know is how Writedown should be used if you are writing a prose-style document, such as a novel.
+
+Although you can structure your paragraphs using a "double-space" approach without indentation, as we've been doing in this document so far, that approach will not render ideal prose-style output.
+
+For example:
+
+This is a paragraph.
+
+This is another paragraph.
+
+The above would be output as:
+
+> This is a paragraph.
+>
+> This is another paragraph.
+
+Instead, you should use tab-indented paragraphs with single paragraph spacing, like so:
+
+    This would be the start of a new paragraph and more text would appear here.
+    And this would be the start of the next paragraph and there would be text here too.
+
+Ignoring the shortness of the line wraps, which are just for demonstration, this would be output as:
+
+>   This would be the start of a new paragraph and
+> more text would appear here.
+>   And this would be the start of the next paragraph
+> and there would be text here too.
+
+Markdown parsers will automatically indent and space paragraphs written in this manner in an output consistent with prose-style typestting.

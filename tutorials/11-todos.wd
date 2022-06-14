@@ -1,0 +1,26 @@
+It can be hard to keep track of items that need attention in a manuscript, especially in a work in progress.
+
+Most writers have some method for keeping track of their "todos", but very often those approaches can interrupt writing flow, pollute a document, or even mistakenly make their way into output.
+
+Writedown's @todo instruction offers a powerful alternative that lets writers create todos in their writing flowstate which are also easy to track and resolve.
+
+Todos can be defined anywhere in a Writedown document, but they will be associated with the structural level they were defined in.
+
+For example, to define a todo within a particular scene, simply define the todo in the context of the scene:
+
+@scene
+@todo This is a scene todo
+...
+@todo This is also a scene todo
+
+Using the "todo" command of a Writedown tool, you can view all of the currently defined todos in your document:
+
+> A Work In Progress                                          
+> -- Part 1                                                   
+> ---- Chapter 1: Writer's Block                              
+> ------ Scene 1: Realizations at the coffee shop             
+> -------- tests/books/wip.wd:16           [TODO] What should we name the barista?
+> ------ Scene 2: Escape through the parking lot              
+> -------- tests/books/wip.wd:26           [TODO] Should this take place in the parking lot or the bathroom?  How does he get the key?
+> ---- Chapter 2                                              
+> ------ tests/books/wip.wd:32             [TODO] Left off here

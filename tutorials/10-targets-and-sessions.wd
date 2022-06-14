@@ -1,0 +1,55 @@
+Setting wordcount targets and tracking writing progress are two things that most serious writers utilize in their workflows.
+
+Writedown supports these types of activities with its @target and @session instructions.
+
+To set and track wordcount targets for different structural levels of your manuscript, use the @target instruction within the structure you want to track.
+
+The following example shows how to set the target wordcount for a chapter to be 3000 words:
+
+@chapter
+@target 3000
+
+You can set targets at the document, act, part, chapter, scene, and section levels of a manuscript.
+
+To set a document wordcount target, simply specify the target before any structural levels:
+
+@title My Novel
+@target 90000
+@part
+
+You can define targets at each level of your document, but you should only set one target per level.
+
+Using the "targets" command of a Writedown tool, you can view (and track) the wordcount targets you have defined:
+
+>                                                                  target     actual      delta
+> A Work In Progress                                                    -        326          -
+> -- Part 1                                                             -        326          -
+> ---- Chapter 1: Writer's Block                                      326        326          0
+> ------ Scene 1: Realizations at the coffee shop                       -        239          -
+> ------ Scene 2: Escape through the parking lot                        -         87          -
+> ---- Chapter 2                                                     2000          0      -2000
+> ---- Chapter 3                                                        -          0          -
+
+While targets let you define and track wordcount targets at a structural level, it can also be useful to track and measure writing session progress.
+
+The @session instruction lets you track a writing session, and optionally specify a target wordcount for that session.
+
+The form of a @session instruction is:
+
+@session [date] [target] [title]
+
+The following examples are all valid session definitions:
+
+@session 5/23/2022
+@session 5/23/2022 1000
+@session On the couch
+@session 1000 On the couch
+@session 5/23/2022 On the couch
+@session 5/23/2022 1000 On the couch
+
+Using the "sessions" command of a Writedown tool will show you information about all of the writing sessions in your document:
+
+>                                                                                             target     actual      delta
+> tests/books/wip.wd:13                    05/10/2022 At the coffee shop, hahaha                 200        239        +39
+> tests/books/wip.wd:24                    05/11/2022                                            100         87        -13
+> tests/books/wip.wd:36                                                                         1000          0      -1000

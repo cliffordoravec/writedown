@@ -1,0 +1,19 @@
+When preparing a manuscript, you may want to include a table of contents.
+
+With Writedown's @tableofcontents instruction (or the shorthand instruction @toc), you can insert an automatically generated table of contents in your document.
+
+For example:
+
+@title My Novel
+@author Me
+@tableofcontents
+@part
+@chapter
+
+Depending on the type of export you have selected and the Writedown tool itself, the table of contents might look something like:
+
+> Contents
+> Part 1 .......... pg. 5 
+>   Chapter 1 .......... pg. 6 
+>   Chapter 2 .......... pg. 8 
+>   Chapter 3 .......... pg. 10 

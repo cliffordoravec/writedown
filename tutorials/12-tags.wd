@@ -1,0 +1,37 @@
+Although Writedown provides many ways for writers to track different kinds of information, some writers may find that they have a unique kind of information that they want to track in their documents.
+
+Writedown's @tag instruction lets writers do just that.
+
+Tags can be defined anywhere in a Writedown document, but they will be associated with the structural level they were defined in.
+
+For example, to define a tag within a particular scene, simply define the tag in the context of the scene:
+
+@scene
+@tag awesome
+...
+@tag needs-work
+
+You can also define multiple tags at the same time:
+
+@tag awesome good
+
+Tags can be and represent whatever you want.  The only rule is that you can't use spaces in a tag name.
+
+For example, the following would create three tags, which is probably not what you want:
+
+@tag don't do this
+
+Instead, you can use a separator, like a dash:
+
+@tag do-this-instead
+
+Using the "tags" command of a Writedown tool, you can see all of the tags that you have defined in your document:
+
+>                                                              tags
+> A Work In Progress                                           
+> -- Part 1                                                    
+> ---- Chapter 1: Writer's Block                               
+> ------ Scene 1: Realizations at the coffee shop              awesome, good
+> ------ Scene 2: Escape through the parking lot               
+> ---- Chapter 2                                               awesome, stuck
+> ---- Chapter 3                          

@@ -1,0 +1,25 @@
+The Writedown @status instruction lets you track the status of structural levels in your document.
+
+It supports the following parameters:
+* new
+* draft
+* revision
+* done
+
+For example, to set the status of a new scene:
+
+@scene
+@status new
+
+By default, structrual levels in a document have no status.
+
+With the "status" command of a Writedown tool, you can see the status of the structural levels in your document:
+
+>                                                              status    
+> A Work In Progress                                                     
+> -- Part 1                                                              
+> ---- Chapter 1: Writer's Block                               draft     
+> ------ Scene 1: Realizations at the coffee shop              draft     
+> ------ Scene 2: Escape through the parking lot                         
+> ---- Chapter 2                                               new       
+> ---- Chapter 3                             

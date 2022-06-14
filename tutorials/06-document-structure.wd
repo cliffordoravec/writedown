@@ -1,0 +1,47 @@
+A core feature of Writedown is its ability to represent document structure for writing projects.
+
+Writedown supports different types of document structures based on the specific structural instructions you use.
+
+For example, a simple prose-style narrative (think "novel"), can be represented using the @part, @chapter, and @scene instructions:
+
+@title My Document
+@author Me
+@part
+@chapter The Beginning
+@scene Big introduction
+This is where the first scene text goes.
+@scene Big transition
+This is where the second scene text goes.
+@chapter The Next Beginning
+@scene
+This scene appears in chapter 2
+
+Using the "wordcount" command of a Writedown tool against the above example, you might get output that looks like the below, showing how Writdown parses the above structure (and also how powerful using Writedown can be):
+
+>                                                              reading time      pages      words      chars
+> My Document                                                       0:00:23          0        106        526
+> -- Part 1                                                         0:00:22          0        105        516
+> ---- Chapter 1: The Beginning                                     0:00:03          0         16         81
+> ------ Scene 1: Big introduction                                  0:00:01          0          8         40
+> ------ Scene 2: Big transition                                    0:00:01          0          8         41
+> ---- Chapter 2: The Next Beginning                                0:00:19          0         89        435
+> ------ Scene 1                                                    0:00:19          0         89        435
+
+And if you were to export the above example, you might get something that looks like the following:
+
+> My Document
+> by Me
+> (pagebreak)
+> Part 1
+> (pagebreak)
+> Chapter 1: The Beginning
+>
+> This is where the first scene text goes.
+>
+> This is where the second scene text goes.
+> (pagebreak)
+> Chapter 2: The Next Beginning
+>
+> This scene appears in chapter 2
+
+To get the most out of using Writedown, be sure to give special care and attention to the structure your documents, as practically everything Writedown does is influenced by or focused on document structure.

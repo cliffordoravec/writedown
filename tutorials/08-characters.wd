@@ -1,0 +1,69 @@
+Writedown can help you organize and track the characters in your manuscript.
+
+The @character instruction lets you define a character and include notes about that character.
+
+For example:
+
+@character Jack, Jack Writer, Jack-o
+Background:  Jack Writer is a novelist who likes to write in coffee shops.
+Appearance:  Leather jacket, white t-shirt, sweater vest; devastatingly handsome.
+
+The above defines a character whose primary name is "Jack" but who is also referred to as "Jack Writer" and "Jack-o".  Following this list of names for the character are free-form notes about the character; you can include whatever you like here in whatever form you choose.
+
+Once you have defined your characters using the @character instruction, Writedown can then find references to those characters throughout your manuscript.
+
+Given the following (fuller) example:
+
+@title A Work In Progress
+@character Jack, Jack Writer, Jack-o
+Background:  Jack Writer is a novelist who likes to write in coffee shops.
+Appearance:  Leather jacket, white t-shirt, sweater vest; devastatingly handsome.
+@chapter 1 Writer's Block
+Jack Writer sat at the coffee shop table, unable to find the words to express lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The barista called his name.  He stood to collect his drink, thinking Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Looking around, he realized that lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+@scene Escape through the parking lot
+Jack raced into the parking lot, spilling his hot beverage on his Moleskine notebook, smudging his notes about lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+You can then use the "characters" command of a Writedown tool to see everywhere that the character Jack appears either by its primary or alternate names:
+
+>                                                              characters
+> A Work In Progress                                           
+> -- Chapter 1: Writer's Block                               
+> ---- Scene 1: Realizations at the coffee shop                Jack (2)
+> ---- Scene 2: Escape through the parking lot                 Jack (1)
+
+It is often useful to split out your character definitions into other files for easy navigation and reference.
+
+For example:
+
+> characters.wd
+> -------------
+> @character Jack
+> ...
+> @character Jill
+> ...
+
+> index.wd
+> --------
+> @title My Novel
+> @include characters.wd
+
+Or even:
+
+> characters/jack.wd
+> ------------------
+> @character Jack
+> ...
+
+> characters/jill.wd
+> ------------------
+> @character Jill
+> ...
+
+> index.wd
+> --------
+> @title My Novel
+> @include characters/*.wd
+
+You don't need to create character definitions for all (or even any) of your characters unless you want to.  Character definitions are useful for characters you want to track throughout your manuscript, as well as for characters you want to collect notes on.  It's up to you to choose which characters you want to do that with.

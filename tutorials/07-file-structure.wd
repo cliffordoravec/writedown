@@ -1,0 +1,129 @@
+In their simplest form, Writedown documents are simple text files with a ".wd" extension.
+
+For example:
+
+> my-novel.wd
+> -----------
+@title My novel
+...
+
+While this may be convenient, and may suffice for smaller documents, anyone who has tried to write a 90,000 word novel in a single Microsoft Word document will know and appreciate the pain of a single-file approach.
+
+That's why Writedown also supports the ability to split up a large document across smaller files.
+
+Writedown supports two main approaches for multi-file projects:
+1. Implicit file inclusion
+2. Explicit file inclusion
+
+The first approach is easiest to explain, so we'll start there.
+
+Using an implicit file inclusion approach, you simply break up your project into smaller Writedown files in a directory, such as:
+
+my-novel/ch1.wd
+my-novel/ch2.wd
+
+Using this approach, Writedown will read all files ending in ".wd" in alphanumercial order, and process them as one large document:
+
+my-novel/
+-- ch1.wd  <-- Read first
+-- ch2.wd  <-- Read second
+
+Writedown uses this same approach even with nested directories.
+
+The following:
+
+my-novel/ch1/scene1.wd
+my-novel/ch1/scene2.wd
+my-novel/ch2/scene1.wd
+
+Would be read as:
+
+my-novel/
+-- ch1/
+---- scene1.wd  <-- Read first
+---- scene2.wd  <-- Read second
+-- ch2/
+---- scene1.wd  <-- Read third
+
+While this approach may work well for smaller projects, or if you are absolutely consistent in your filenaming and don't need to restructure your document often, another approach can give you much more control over your project.
+
+The second (explicit) approach uses a single Writedown file that serves as the entrypoint for a project.  Individual files are then explicitly included by that file using the @include instruction.
+
+By default, Writedown looks for such a file named "index.wd" in each directory it searches.  This is not a requirement, but a convention.  You can most certainly name your entrypoint "main.wd" or whatever else you like; however, you will then need to specify that file explicitly as your entrypoint.  For this reason, it's probably much simpler to stick to the convention.
+
+When Writedown detects a file named "index.wd" in a directory, it is the only file that is read in that directory:
+
+my-novel/index.wd  <-- Only file read
+my-novel/ch1.wd
+my-novel/ch2.wd
+my-novel/ch3.wd
+
+Your index.wd file would then explicitly include the files you want to include in your project, in the order they should be included:
+
+> my-novel/index.wd
+> -----------------
+@include ch1.wd
+@include ch2.wd
+@include ch2.wd
+
+Using this approach, you can carve up your document into whatever file structure makes the most sense for you.  For example:
+
+my-novel/index.wd
+my-novel/terra-firma/index.wd
+my-novel/terra-firma/beginnings/index.wd
+my-novel/terra-firma/beginnings/the-beginning.wd
+my-novel/terra-firma/beginnings/the-next-beginning.wd
+my-novel/terra-firma/runnings/index.wd
+my-novel/terra-firma/runnings/running-to.wd
+my-novel/terra-firma/runnings/running-from.wd
+my-novel/terra-firma/wip/index.wd
+my-novel/terra-firma/wip/not-done.wd
+...
+
+> my-novel/index.wd
+> -----------------
+@title My Novel
+@include terra-firma
+
+> my-novel/terra-firma/index.wd
+> -----------------------------
+@part Terra Firma
+@include beginnings
+@include runnings
+@*
+Don't include just yet - it's too WIP right now
+@include wip
+*@
+
+> my-novel/terra-firma/beginnings/index.wd
+> ----------------------------------------
+@chapter Beginnings
+@include the-beginning.wd
+@include the-next-beginning.wd
+
+> my-novel/terra-firma/runnings/index.wd
+> --------------------------------------
+@chapter Runnings
+@include running-to.wd
+@include running-from.wd
+
+The above would yield a document with the structure:
+
+> My Novel
+> -- Part 1: Terra Firma
+> ---- Chapter 1: Beginnings
+> ------ Scene 1: The Beginning
+> ------ Scene 2: The Next Beginning
+> ---- Chapter 2: Runnings
+> ------ Scene 1: Running To
+> ------ Scene 2: Running From
+
+As a convenience, the @include instruction also allows glob patterns.  Matching files are resolved and read in alphanumerical order (see the documentation on @include for more information).
+
+The following are some examples of glob pattern includes:
+
+@include part1/ch*.wd
+@include part1/ch1/*.wd
+@include part2/**/*.wd
+
+Before ending this tutorial, you should note that some Writedown instructions can span files, whereas others terminate at the end of a file.  When using a multi-file project approach, be sure you understand which Writedown instructions behave in which way, or you may get unexpected results.

@@ -1,0 +1,57 @@
+Writedown also lets you organize and track places and locations in your manuscript.
+
+In Writedown, a "place" is a top-level definition, much like a character.  A "location", by contrast, is context-sensitive.  The following discussion will help to clarify these points.
+
+The @place instruction lets you define a place and include notes about that place.
+
+For example:
+
+@place Farbucks
+A large coffee chain location frequented by writers and bloggers.
+See this site for design ideas: https://www.architecturaldigest.com/gallery/best-modern-coffee-shop-design-slideshow
+Sigificance: A recently famous new author used to write here and so others are drawn to the place, thinking it will help them write a breakout novel.
+
+Places (and locations, which we'll cover next) are defined by a primary name, followed by additional geographic information.  In the above example, "Farbucks" is the primary place name.
+
+Additional (expanding) geographic information can be specified using comma-separated values:
+
+@place Farbucks, Cityville, Countria
+
+Like characters, you can embed place definitions in your main Writedown file, or include them from separate files.
+
+The @location instruction lets you define where certain parts of your manuscript take place.
+
+For example:
+
+@title A Work In Progress
+@chapter 1 Writer's Block
+@scene Realizations at the coffee shop
+@location Farbucks
+Jack Writer sat at the coffee shop table, unable to find the words to express lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The barista called his name.  He stood to collect his drink, thinking Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Looking around, he realized that lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+@scene Escape through the parking lot
+@location Farbucks Parking Lot
+Jack raced into the parking lot, spilling his hot beverage on his Moleskine notebook, smudging his notes about lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Using the "locations" command of a Writedown tool against the above example would then show you something like the following:
+
+>                                                              locations
+> A Work In Progress                                           
+> -- Chapter 1: Writer's Block                               
+> ---- Scene 1: Realizations at the coffee shop                Farbucks
+> ---- Scene 2: Escape through the parking lot                 Farbucks Parking Lot
+
+Locations can be defined without corresponding places; not every location warrants a detailed place definition.
+
+In the cases where you want to link the locations in your document to their corresponding place definitions, simply be sure to use the primary name of the place as the name of the location.
+
+For example:
+
+@# Full place definition:
+@place Farbucks, Cityville, Countria
+(information about Farbucks...)
+
+@section
+@# Using the primary name of the place (Farbucks) will link this location usage to the matching place definition:
+@location Farbucks

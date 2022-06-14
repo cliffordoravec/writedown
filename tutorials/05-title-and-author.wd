@@ -1,0 +1,6 @@
+Most Writedown documents, especially prose documents, will have a title and an author.
+
+Specifying a title and an author in Writedown is done using the @title and @author instructions, respectively:
+
+@title My Document
+@author Me

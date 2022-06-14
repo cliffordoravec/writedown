@@ -1,0 +1,27 @@
+Writedown gets interesting when you start to include Writedown instructions in your documents.
+
+Writedown instructions must appear at the beginning of a new line - you can't have any spaces or other characters in front of them.
+
+For example, the following would be recognized as a Writedown instruction for a todo:
+@todo This is a valid todo
+
+But the following would **not**, as there is a space in front of the instruction:
+ @todo This would not be a valid todo
+
+The following would also **not** be recognized as a Writedown instruction, as the instruction does not appear at the beginning of the line:
+I need @todo update this part
+
+The order of Writedown instructions matters.  When it comes to output, Writedown instructions are emitted as they are encountered.  In other cases, Writedown instructions are context-sensitive.
+
+Understanding instruction order is easy:
+@todo First todo
+@todo Second todo
+
+Understanding context requires understanding how the instruction determines its context:
+@todo This todo is **not** in the context of chapter 1 - it would belong to the document
+@chapter 1
+@todo This todo is in the context of chapter 1
+
+@todo This todo is **not** in the context of chapter 2 - it would belong to chapter 1
+@chapter 2
+@todo This todo is in the context of chapter 2
