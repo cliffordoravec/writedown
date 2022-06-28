@@ -418,7 +418,7 @@ writedown> export dump
 
 ## Writedown Tools
 
-Coming Soon!
+* [The Official Writedown Parser and Command Line Interface](https://github.com/cliffordoravec/writedown-parser)
 
 ## Credits
 
